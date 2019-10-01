@@ -29,6 +29,18 @@ public class PathFactory {
         return unsignedPathFactory.createDynamicSharingPath(appId) + createSignatureParams();
     }
 
+    public String createNewYotiDocsSessionPath(String appId) {
+        return unsignedPathFactory.createNewYotiDocsSessionPath(appId) + createSignatureParams();
+    }
+
+    public String createGetYotiDocsSessionPath(String appId, String sessionId) {
+        return unsignedPathFactory.createYotiDocsSessionPath(appId, sessionId) + createSignatureParams();
+    }
+
+    public String createMediaContentPath(String appId, String sessionId, String mediaId) {
+        return unsignedPathFactory.createMediaContentPath(appId, sessionId, mediaId);
+    }
+
     protected long createTimestamp() {
         return nanoTime() / 1000;
     }
