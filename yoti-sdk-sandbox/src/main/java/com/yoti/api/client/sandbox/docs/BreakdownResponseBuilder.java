@@ -3,6 +3,7 @@ package com.yoti.api.client.sandbox.docs;
 import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.yoti.api.client.docs.session.retrieve.BreakdownResponse;
 
 public class BreakdownResponseBuilder {
@@ -11,7 +12,7 @@ public class BreakdownResponseBuilder {
 
     private String result;
 
-    private ArrayNode details;
+    private ArrayNode details = JsonNodeFactory.instance.arrayNode();
 
     public BreakdownResponseBuilder withSubCheck(String subCheck) {
         this.subCheck = subCheck;

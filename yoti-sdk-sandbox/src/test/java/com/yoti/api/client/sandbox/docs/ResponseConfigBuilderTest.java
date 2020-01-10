@@ -28,10 +28,10 @@ public class ResponseConfigBuilderTest {
                 .withSubCheck("security_features")
                 .build();
 
-        ReportResponse documentAuthenticityReport = new ReportResponseBuilder()
-                .withRecommendation(recommendationResponse)
-                .withBreakdown(breakdownResponse)
-                .build();
+//        ReportResponse documentAuthenticityReport = new ReportResponseBuilder()
+//                .withRecommendation(recommendationResponse)
+//                .withBreakdown(breakdownResponse)
+//                .build();
 
         SandboxDocumentAuthenticityCheckReport sandboxDocumentAuthenticityCheckReport = new SandboxDocumentAuthenticityCheckReportBuilder()
                 .withBreakdown(breakdownResponse)
