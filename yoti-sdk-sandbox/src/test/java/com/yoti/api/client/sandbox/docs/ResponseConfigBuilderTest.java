@@ -14,10 +14,10 @@ public class ResponseConfigBuilderTest {
 
     @Test
     public void shouldBuildTaskResult() throws Exception {
-        TaskResult taskResult = new TaskResultBuilder()
-                .withDocumentField("full_name", "Alex Burt")
-                .withDocumentField("age", 13)
-                .build();
+//        TaskResult taskResult = new TaskResultBuilder()
+//                .withDocumentField("full_name", "Alex Burt")
+//                .withDocumentField("age", 13)
+//                .build();
 
         RecommendationResponse recommendationResponse = new RecommendationResponseBuilder()
                 .withValue("APPROVE")
@@ -33,8 +33,20 @@ public class ResponseConfigBuilderTest {
                 .withBreakdown(breakdownResponse)
                 .build();
 
+        SandboxDocumentAuthenticityCheckReport sandboxDocumentAuthenticityCheckReport = new SandboxDocumentAuthenticityCheckReportBuilder()
+                .withBreakdown(breakdownResponse)
+                .withRecommendation(recommendationResponse)
+                .build();
+
+        SandboxTextDataCheckReport sandboxTextDataCheckReport = new SandboxTextDataCheckReportBuilder()
+                .withBreakdown(breakdownResponse)
+                .withRecommendation(recommendationResponse)
+                .withDocumentField("someName", "someValue")
+                .build();
+
         CheckReport checkReport = new CheckReportBuilder()
-                .withDocumentAuthenticityReport(documentAuthenticityReport)
+                .withDocumentAuthenticityReport(sandboxDocumentAuthenticityCheckReport)
+                .withTextDataCheckReport(sandboxTextDataCheckReport)
                 .build();
 
         ResponseConfig responseConfig = new ResponseConfigBuilder()

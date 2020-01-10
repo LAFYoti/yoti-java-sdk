@@ -4,7 +4,6 @@ import static com.yoti.api.client.docs.Constants.*;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.yoti.api.client.docs.session.retrieve.ReportResponse;
 
 import java.util.List;
 
@@ -12,24 +11,24 @@ import java.util.List;
 public class CheckReport {
 
     @JsonProperty(ID_DOCUMENT_TEXT_DATA_CHECK)
-    private final ReportResponse textDataCheckReport;
+    private final SandboxTextDataCheckReport textDataCheckReport;
 
     @JsonProperty(ID_DOCUMENT_AUTHENTICITY)
-    private final ReportResponse documentAuthenticityReport;
+    private final SandboxDocumentAuthenticityCheckReport documentAuthenticityReport;
 
     @JsonProperty(LIVENESS)
-    private final List<ReportResponse> livenessReport;
+    private final List<SandboxLivenessCheckReport> livenessReport;
 
     @JsonProperty(ID_DOCUMENT_FACE_MATCH)
-    private final ReportResponse documentFaceMatchReport;
+    private final SandboxFaceMatchCheckReport documentFaceMatchReport;
 
     @JsonProperty("async_report_delay")
     private final Integer asyncReportDelay;
 
-    CheckReport(ReportResponse textDataCheckReport,
-                ReportResponse documentAuthenticityReport,
-                List<ReportResponse> livenessReport,
-                ReportResponse documentFaceMatchReport,
+    CheckReport(SandboxTextDataCheckReport textDataCheckReport,
+                SandboxDocumentAuthenticityCheckReport documentAuthenticityReport,
+                List<SandboxLivenessCheckReport> livenessReport,
+                SandboxFaceMatchCheckReport documentFaceMatchReport,
                 Integer asyncReportsDelay) {
         this.textDataCheckReport = textDataCheckReport;
         this.documentAuthenticityReport = documentAuthenticityReport;
@@ -38,19 +37,19 @@ public class CheckReport {
         this.asyncReportDelay = asyncReportsDelay;
     }
 
-    public ReportResponse getTextDataCheckReport() {
+    public SandboxTextDataCheckReport getTextDataCheckReport() {
         return textDataCheckReport;
     }
 
-    public ReportResponse getDocumentAuthenticityReport() {
+    public SandboxDocumentAuthenticityCheckReport getDocumentAuthenticityReport() {
         return documentAuthenticityReport;
     }
 
-    public List<ReportResponse> getLivenessReport() {
+    public List<SandboxLivenessCheckReport> getLivenessReport() {
         return livenessReport;
     }
 
-    public ReportResponse getDocumentFaceMatchReport() {
+    public SandboxFaceMatchCheckReport getDocumentFaceMatchReport() {
         return documentFaceMatchReport;
     }
 

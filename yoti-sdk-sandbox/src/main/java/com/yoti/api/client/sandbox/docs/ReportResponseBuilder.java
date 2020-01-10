@@ -48,7 +48,8 @@ public class ReportResponseBuilder {
         notNull(recommendation, "recommendation");
         notNull(breakdown, "breakdown");
 
-        return new ReportResponse(recommendation, breakdown, documentFields);
+//        return new ReportResponse(recommendation, breakdown, documentFields);
+        return null;
     }
 
 }

@@ -3,9 +3,7 @@ package com.yoti.api.client.spi.remote.call.docs;
 import static com.yoti.api.client.spi.remote.call.HttpMethod.HTTP_DELETE;
 import static com.yoti.api.client.spi.remote.call.HttpMethod.HTTP_GET;
 import static com.yoti.api.client.spi.remote.call.HttpMethod.HTTP_POST;
-import static com.yoti.api.client.spi.remote.call.YotiConstants.DEFAULT_CHARSET;
-import static com.yoti.api.client.spi.remote.call.YotiConstants.DEFAULT_YOTI_DOCS_URL;
-import static com.yoti.api.client.spi.remote.call.YotiConstants.PROPERTY_YOTI_DOCS_URL;
+import static com.yoti.api.client.spi.remote.call.YotiConstants.*;
 import static com.yoti.api.client.spi.remote.util.Validation.notNull;
 
 import java.io.IOException;
@@ -163,7 +161,14 @@ public final class YotiDocsService {
                     .withHttpMethod(HTTP_GET)
                     .build();
 
-            return signedRequest.execute(MediaValue.class);
+            SignedRequestResponse response = signedRequest.execute();
+            List<String> headers = response.getResponseHeaders().get(CONTENT_TYPE);
+            String contentType = "";
+            if (headers != null && headers.size() > 0) {
+                contentType = headers.get(0);
+            }
+
+            return new MediaValue(contentType, response.getResponseBody());
         } catch (GeneralSecurityException ex) {
             throw new YotiDocsException("Error signing the request: " + ex.getMessage(), ex);
         } catch (ResourceException ex) {

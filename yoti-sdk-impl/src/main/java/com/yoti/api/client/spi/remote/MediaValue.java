@@ -9,7 +9,7 @@ public class MediaValue implements Media {
     private final String mimeType;
     private final byte[] content;
 
-    MediaValue(String mimeType, byte[] content) {
+    public MediaValue(String mimeType, byte[] content) {
         this.mimeType = mimeType;
         this.content = content;
     }

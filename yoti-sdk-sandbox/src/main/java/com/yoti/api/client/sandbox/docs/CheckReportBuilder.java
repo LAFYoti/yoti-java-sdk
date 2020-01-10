@@ -1,38 +1,36 @@
 package com.yoti.api.client.sandbox.docs;
 
-import com.yoti.api.client.docs.session.retrieve.ReportResponse;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckReportBuilder {
 
-    private ReportResponse textDataCheckReport;
+    private SandboxTextDataCheckReport textDataCheckReport;
 
-    private ReportResponse documentAuthenticityReport;
+    private SandboxDocumentAuthenticityCheckReport documentAuthenticityReport;
 
-    private List<ReportResponse> livenessReport = new ArrayList<>();
+    private List<SandboxLivenessCheckReport> livenessReport = new ArrayList<>();
 
-    private ReportResponse documentFaceMatchReport;
+    private SandboxFaceMatchCheckReport documentFaceMatchReport;
 
     private Integer asyncReportDelay;
 
-    public CheckReportBuilder withTextDataCheckReport(ReportResponse textDataCheckReport) {
+    public CheckReportBuilder withTextDataCheckReport(SandboxTextDataCheckReport textDataCheckReport) {
         this.textDataCheckReport = textDataCheckReport;
         return this;
     }
 
-    public CheckReportBuilder withDocumentAuthenticityReport(ReportResponse documentAuthenticityReport) {
+    public CheckReportBuilder withDocumentAuthenticityReport(SandboxDocumentAuthenticityCheckReport documentAuthenticityReport) {
         this.documentAuthenticityReport = documentAuthenticityReport;
         return this;
     }
 
-    public CheckReportBuilder withLivenessReport(ReportResponse livenessReport) {
+    public CheckReportBuilder withLivenessReport(SandboxLivenessCheckReport livenessReport) {
         this.livenessReport.add(livenessReport);
         return this;
     }
 
-    public CheckReportBuilder withDocumentFaceMatchReport(ReportResponse documentFaceMatchReport) {
+    public CheckReportBuilder withDocumentFaceMatchReport(SandboxFaceMatchCheckReport documentFaceMatchReport) {
         this.documentFaceMatchReport = documentFaceMatchReport;
         return this;
     }
