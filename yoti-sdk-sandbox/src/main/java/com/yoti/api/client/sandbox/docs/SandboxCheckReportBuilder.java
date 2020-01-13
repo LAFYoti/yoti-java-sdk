@@ -10,33 +10,33 @@ import java.util.List;
 
 public class SandboxCheckReportBuilder {
 
-    private SandboxTextDataCheck textDataCheckReport;
+    private SandboxTextDataCheck textDataCheck;
 
-    private SandboxDocumentAuthenticityCheck documentAuthenticityReport;
+    private SandboxDocumentAuthenticityCheck documentAuthenticityCheck;
 
-    private List<SandboxLivenessCheck> livenessReport = new ArrayList<>();
+    private List<SandboxLivenessCheck> livenessCheck = new ArrayList<>();
 
-    private SandboxFaceMatchCheck documentFaceMatchReport;
+    private SandboxFaceMatchCheck documentFaceMatchCheck;
 
     private Integer asyncReportDelay;
 
-    public SandboxCheckReportBuilder withTextDataCheckReport(SandboxTextDataCheck textDataCheckReport) {
-        this.textDataCheckReport = textDataCheckReport;
+    public SandboxCheckReportBuilder withTextDataCheck(SandboxTextDataCheck textDataCheckReport) {
+        this.textDataCheck = textDataCheckReport;
         return this;
     }
 
-    public SandboxCheckReportBuilder withDocumentAuthenticityReport(SandboxDocumentAuthenticityCheck documentAuthenticityReport) {
-        this.documentAuthenticityReport = documentAuthenticityReport;
+    public SandboxCheckReportBuilder withDocumentAuthenticityCheck(SandboxDocumentAuthenticityCheck documentAuthenticityReport) {
+        this.documentAuthenticityCheck = documentAuthenticityReport;
         return this;
     }
 
-    public SandboxCheckReportBuilder withLivenessReport(SandboxLivenessCheck livenessReport) {
-        this.livenessReport.add(livenessReport);
+    public SandboxCheckReportBuilder withLivenessCheck(SandboxLivenessCheck livenessReport) {
+        this.livenessCheck.add(livenessReport);
         return this;
     }
 
-    public SandboxCheckReportBuilder withDocumentFaceMatchReport(SandboxFaceMatchCheck documentFaceMatchReport) {
-        this.documentFaceMatchReport = documentFaceMatchReport;
+    public SandboxCheckReportBuilder withDocumentFaceMatchCheck(SandboxFaceMatchCheck documentFaceMatchReport) {
+        this.documentFaceMatchCheck = documentFaceMatchReport;
         return this;
     }
 
@@ -46,7 +46,7 @@ public class SandboxCheckReportBuilder {
     }
 
     public SandboxCheckReport build() {
-        return new SandboxCheckReport(textDataCheckReport, documentAuthenticityReport, livenessReport, documentFaceMatchReport, asyncReportDelay);
+        return new SandboxCheckReport(textDataCheck, documentAuthenticityCheck, livenessCheck, documentFaceMatchCheck, asyncReportDelay);
     }
 
 }

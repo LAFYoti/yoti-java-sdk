@@ -46,8 +46,8 @@ public class SandboxExpectationBuilderTest {
                 .build();
 
         SandboxCheckReport sandboxCheckReport = new SandboxCheckReportBuilder()
-                .withDocumentAuthenticityReport(sandboxDocumentAuthenticityCheckReport)
-                .withTextDataCheckReport(sandboxTextDataCheckReport)
+                .withDocumentAuthenticityCheck(sandboxDocumentAuthenticityCheckReport)
+                .withTextDataCheck(sandboxTextDataCheckReport)
                 .build();
 
         SandboxExpectation sandboxExpectation = new SandboxExpectationBuilder()

@@ -15,49 +15,50 @@ import java.util.List;
 public class SandboxCheckReport {
 
     @JsonProperty(ID_DOCUMENT_TEXT_DATA_CHECK)
-    private final SandboxTextDataCheck textDataCheckReport;
+    private final SandboxTextDataCheck textDataCheck;
 
     @JsonProperty(ID_DOCUMENT_AUTHENTICITY)
-    private final SandboxDocumentAuthenticityCheck documentAuthenticityReport;
+    private final SandboxDocumentAuthenticityCheck documentAuthenticityCheck;
 
     @JsonProperty(LIVENESS)
-    private final List<SandboxLivenessCheck> livenessReport;
+    private final List<SandboxLivenessCheck> livenessCheck;
 
     @JsonProperty(ID_DOCUMENT_FACE_MATCH)
-    private final SandboxFaceMatchCheck documentFaceMatchReport;
+    private final SandboxFaceMatchCheck documentFaceMatchCheck;
 
     @JsonProperty("async_report_delay")
     private final Integer asyncReportDelay;
 
-    SandboxCheckReport(SandboxTextDataCheck textDataCheckReport,
-                       SandboxDocumentAuthenticityCheck documentAuthenticityReport,
-                       List<SandboxLivenessCheck> livenessReport,
-                       SandboxFaceMatchCheck documentFaceMatchReport,
+    SandboxCheckReport(SandboxTextDataCheck textDataCheck,
+                       SandboxDocumentAuthenticityCheck documentAuthenticityCheck,
+                       List<SandboxLivenessCheck> livenessCheck,
+                       SandboxFaceMatchCheck documentFaceMatchCheck,
                        Integer asyncReportsDelay) {
-        this.textDataCheckReport = textDataCheckReport;
-        this.documentAuthenticityReport = documentAuthenticityReport;
-        this.livenessReport = livenessReport;
-        this.documentFaceMatchReport = documentFaceMatchReport;
+        this.textDataCheck = textDataCheck;
+        this.documentAuthenticityCheck = documentAuthenticityCheck;
+        this.livenessCheck = livenessCheck;
+        this.documentFaceMatchCheck = documentFaceMatchCheck;
         this.asyncReportDelay = asyncReportsDelay;
     }
 
-    public SandboxTextDataCheck getTextDataCheckReport() {
-        return textDataCheckReport;
+    public SandboxTextDataCheck getTextDataCheck() {
+        return textDataCheck;
     }
 
-    public SandboxDocumentAuthenticityCheck getDocumentAuthenticityReport() {
-        return documentAuthenticityReport;
+    public SandboxDocumentAuthenticityCheck getDocumentAuthenticityCheck() {
+        return documentAuthenticityCheck;
     }
 
-    public List<SandboxLivenessCheck> getLivenessReport() {
-        return livenessReport;
+    public List<SandboxLivenessCheck> getLivenessCheck() {
+        return livenessCheck;
     }
 
-    public SandboxFaceMatchCheck getDocumentFaceMatchReport() {
-        return documentFaceMatchReport;
+    public SandboxFaceMatchCheck getDocumentFaceMatchCheck() {
+        return documentFaceMatchCheck;
     }
 
     public Integer getAsyncReportDelay() {
         return asyncReportDelay;
     }
+
 }
