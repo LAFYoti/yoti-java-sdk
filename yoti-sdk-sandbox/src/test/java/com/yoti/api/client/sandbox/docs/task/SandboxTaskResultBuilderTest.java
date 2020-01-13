@@ -1,4 +1,4 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.task;
 
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.collection.IsMapContaining.hasEntry;

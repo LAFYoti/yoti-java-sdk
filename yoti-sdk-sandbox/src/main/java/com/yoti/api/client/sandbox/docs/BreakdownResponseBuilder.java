@@ -14,6 +14,14 @@ public class BreakdownResponseBuilder {
 
     private ArrayNode details = JsonNodeFactory.instance.arrayNode();
 
+    public static BreakdownResponse passForCheck(String check) {
+        return new BreakdownResponse("PASS", check, JsonNodeFactory.instance.arrayNode());
+    }
+
+    public static BreakdownResponse failForCheck(String check) {
+        return new BreakdownResponse("FAIL", check, JsonNodeFactory.instance.arrayNode());
+    }
+
     public BreakdownResponseBuilder withSubCheck(String subCheck) {
         this.subCheck = subCheck;
         return this;
