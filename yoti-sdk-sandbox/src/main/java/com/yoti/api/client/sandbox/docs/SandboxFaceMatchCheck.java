@@ -5,9 +5,9 @@ import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
 
 import java.util.List;
 
-public class SandboxFaceMatchCheckReport extends SandboxCheckReport {
+public class SandboxFaceMatchCheck extends SandboxCheck {
 
-    SandboxFaceMatchCheckReport(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
+    SandboxFaceMatchCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
         super(recommendation, breakdown);
     }
 

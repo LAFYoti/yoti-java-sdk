@@ -6,7 +6,7 @@ import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class SandboxCheckReportBuilder<T extends SandboxCheckReportBuilder<T>> {
+abstract class SandboxCheckBuilder<T extends SandboxCheckBuilder<T>> {
 
     protected RecommendationResponse recommendation;
     protected List<BreakdownResponse> breakdown = new ArrayList<>();
@@ -28,6 +28,6 @@ abstract class SandboxCheckReportBuilder<T extends SandboxCheckReportBuilder<T>>
 
     protected abstract T self();
 
-    public abstract SandboxCheckReport build();
+    public abstract SandboxCheck build();
 
 }

@@ -2,20 +2,20 @@ package com.yoti.api.client.sandbox.docs;
 
 public class SandboxCheckReportBuilderFactory {
 
-    public SandboxDocumentAuthenticityCheckReportBuilder createDocumentAuthenticityCheckReportBuilder() {
-        return new SandboxDocumentAuthenticityCheckReportBuilder();
+    public SandboxDocumentAuthenticityCheckBuilder createDocumentAuthenticityCheckReportBuilder() {
+        return new SandboxDocumentAuthenticityCheckBuilder();
     }
 
-    public SandboxLivenessCheckReportBuilder createLivenessCheckReportBuilder() {
-        return new SandboxLivenessCheckReportBuilder();
+    public SandboxLivenessCheckBuilder createLivenessCheckReportBuilder() {
+        return new SandboxLivenessCheckBuilder();
     }
 
-    public SandboxFaceMatchCheckReportBuilder createFaceMatchCheckReportBuilder() {
-        return new SandboxFaceMatchCheckReportBuilder();
+    public SandboxFaceMatchCheckBuilder createFaceMatchCheckReportBuilder() {
+        return new SandboxFaceMatchCheckBuilder();
     }
 
-    public SandboxTextDataCheckReportBuilder createTextDataCheckReportBuilder() {
-        return new SandboxTextDataCheckReportBuilder();
+    public SandboxTextDataCheckBuilder createTextDataCheckReportBuilder() {
+        return new SandboxTextDataCheckBuilder();
     }
 
 }

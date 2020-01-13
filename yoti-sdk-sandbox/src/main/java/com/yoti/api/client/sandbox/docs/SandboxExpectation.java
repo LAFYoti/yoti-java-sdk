@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ResponseConfig {
+public class SandboxExpectation {
 
     @JsonProperty("task_results")
     private Map<String, TaskResult> taskResults;
@@ -14,7 +14,7 @@ public class ResponseConfig {
     @JsonProperty("check_reports")
     private CheckReport checkReports;
 
-    ResponseConfig(Map<String, TaskResult> taskResults, CheckReport checkReports) {
+    SandboxExpectation(Map<String, TaskResult> taskResults, CheckReport checkReports) {
         this.taskResults = taskResults;
         this.checkReports = checkReports;
     }

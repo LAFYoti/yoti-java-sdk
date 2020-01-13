@@ -8,7 +8,7 @@ import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-abstract class SandboxCheckReport {
+abstract class SandboxCheck {
 
     @JsonProperty("recommendation")
     private RecommendationResponse recommendation;
@@ -16,7 +16,7 @@ abstract class SandboxCheckReport {
     @JsonProperty("breakdown")
     private List<BreakdownResponse> breakdown;
 
-    SandboxCheckReport(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
+    SandboxCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
         this.recommendation = recommendation;
         this.breakdown = breakdown;
     }

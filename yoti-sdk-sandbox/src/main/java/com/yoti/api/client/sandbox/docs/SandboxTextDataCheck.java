@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class SandboxTextDataCheckReport extends SandboxCheckReport {
+public class SandboxTextDataCheck extends SandboxCheck {
 
     @JsonProperty("document_fields")
     private Map<String, Object> documentFields;
 
-    SandboxTextDataCheckReport(RecommendationResponse recommendation, List<BreakdownResponse> breakdown, Map<String, Object> documentFields) {
+    SandboxTextDataCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown, Map<String, Object> documentFields) {
         super(recommendation, breakdown);
         this.documentFields = documentFields;
     }

@@ -4,11 +4,10 @@ import static com.yoti.api.client.spi.remote.call.YotiConstants.*;
 import static com.yoti.api.client.spi.remote.util.Validation.notNull;
 import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yoti.api.client.InitialisationException;
 import com.yoti.api.client.KeyPairSource;
-import com.yoti.api.client.sandbox.docs.ResponseConfig;
+import com.yoti.api.client.sandbox.docs.SandboxExpectation;
 import com.yoti.api.client.sandbox.profile.request.YotiTokenRequest;
 import com.yoti.api.client.sandbox.profile.response.YotiTokenResponse;
 import com.yoti.api.client.spi.remote.KeyStreamVisitor;
@@ -18,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
 import java.security.KeyPair;
@@ -85,11 +83,11 @@ public class YotiSandboxClient {
         }
     }
 
-    public void setupDocScanSessionResponse(String sessionId, ResponseConfig responseConfig) throws SandboxException {
+    public void setupDocScanSessionResponse(String sessionId, SandboxExpectation sandboxExpectation) throws SandboxException {
         String path = "/sessions/" + sessionId + "/response-config";
 
         try {
-            byte[] body = mapper.writeValueAsBytes(responseConfig);
+            byte[] body = mapper.writeValueAsBytes(sandboxExpectation);
 
             SignedRequest signedRequest = SignedRequestBuilder.newInstance()
                     .withBaseUrl(docScanBasePath)
@@ -106,11 +104,11 @@ public class YotiSandboxClient {
         }
     }
 
-    public void setupDocScanApplicationResponse(ResponseConfig responseConfig) {
+    public void setupDocScanApplicationResponse(SandboxExpectation sandboxExpectation) {
         String path = "/apps/" + appId + "/response-config";
 
         try {
-            byte[] body = mapper.writeValueAsBytes(responseConfig);
+            byte[] body = mapper.writeValueAsBytes(sandboxExpectation);
 
             SignedRequest signedRequest = SignedRequestBuilder.newInstance()
                     .withBaseUrl(docScanBasePath)

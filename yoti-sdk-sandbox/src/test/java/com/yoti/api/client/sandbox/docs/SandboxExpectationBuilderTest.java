@@ -1,14 +1,11 @@
 package com.yoti.api.client.sandbox.docs;
 
-import static com.yoti.api.client.docs.Constants.ID_DOCUMENT_AUTHENTICITY;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yoti.api.client.docs.session.retrieve.BreakdownResponse;
 import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
-import com.yoti.api.client.docs.session.retrieve.ReportResponse;
 import org.junit.Test;
 
-public class ResponseConfigBuilderTest {
+public class SandboxExpectationBuilderTest {
 
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
@@ -33,12 +30,12 @@ public class ResponseConfigBuilderTest {
 //                .withBreakdown(breakdownResponse)
 //                .build();
 
-        SandboxDocumentAuthenticityCheckReport sandboxDocumentAuthenticityCheckReport = new SandboxDocumentAuthenticityCheckReportBuilder()
+        SandboxDocumentAuthenticityCheck sandboxDocumentAuthenticityCheckReport = new SandboxDocumentAuthenticityCheckBuilder()
                 .withBreakdown(breakdownResponse)
                 .withRecommendation(recommendationResponse)
                 .build();
 
-        SandboxTextDataCheckReport sandboxTextDataCheckReport = new SandboxTextDataCheckReportBuilder()
+        SandboxTextDataCheck sandboxTextDataCheckReport = new SandboxTextDataCheckBuilder()
                 .withBreakdown(breakdownResponse)
                 .withRecommendation(recommendationResponse)
                 .withDocumentField("someName", "someValue")
@@ -49,11 +46,11 @@ public class ResponseConfigBuilderTest {
                 .withTextDataCheckReport(sandboxTextDataCheckReport)
                 .build();
 
-        ResponseConfig responseConfig = new ResponseConfigBuilder()
+        SandboxExpectation sandboxExpectation = new SandboxExpectationBuilder()
                 .withCheckReport(checkReport)
                 .build();
 
-        String response = OBJECT_MAPPER.writeValueAsString(responseConfig);
+        String response = OBJECT_MAPPER.writeValueAsString(sandboxExpectation);
 
         String s = "s";
     }

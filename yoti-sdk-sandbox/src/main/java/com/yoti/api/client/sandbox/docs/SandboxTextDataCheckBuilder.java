@@ -5,32 +5,32 @@ import static com.yoti.api.client.spi.remote.util.Validation.notNull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SandboxTextDataCheckReportBuilder extends SandboxCheckReportBuilder<SandboxTextDataCheckReportBuilder> {
+public class SandboxTextDataCheckBuilder extends SandboxCheckBuilder<SandboxTextDataCheckBuilder> {
 
     private Map<String, Object> documentFields = new HashMap<>();
 
-    public SandboxTextDataCheckReportBuilder withDocumentField(String key, Object value) {
+    public SandboxTextDataCheckBuilder withDocumentField(String key, Object value) {
         this.documentFields.put(key, value);
         return this;
     }
 
-    public SandboxTextDataCheckReportBuilder withDocumentFields(Map<String, Object> documentFields) {
+    public SandboxTextDataCheckBuilder withDocumentFields(Map<String, Object> documentFields) {
         this.documentFields = documentFields;
         return this;
     }
 
     @Override
-    protected SandboxTextDataCheckReportBuilder self() {
+    protected SandboxTextDataCheckBuilder self() {
         return this;
     }
 
     @Override
-    public SandboxTextDataCheckReport build() {
+    public SandboxTextDataCheck build() {
         notNull(recommendation, "recommendation");
         notNull(breakdown, "breakdown");
         notNull(documentFields, "documentFields");
 
-        return new SandboxTextDataCheckReport(recommendation, breakdown, documentFields);
+        return new SandboxTextDataCheck(recommendation, breakdown, documentFields);
     }
 
 }

@@ -5,32 +5,32 @@ import java.util.List;
 
 public class CheckReportBuilder {
 
-    private SandboxTextDataCheckReport textDataCheckReport;
+    private SandboxTextDataCheck textDataCheckReport;
 
-    private SandboxDocumentAuthenticityCheckReport documentAuthenticityReport;
+    private SandboxDocumentAuthenticityCheck documentAuthenticityReport;
 
-    private List<SandboxLivenessCheckReport> livenessReport = new ArrayList<>();
+    private List<SandboxLivenessCheck> livenessReport = new ArrayList<>();
 
-    private SandboxFaceMatchCheckReport documentFaceMatchReport;
+    private SandboxFaceMatchCheck documentFaceMatchReport;
 
     private Integer asyncReportDelay;
 
-    public CheckReportBuilder withTextDataCheckReport(SandboxTextDataCheckReport textDataCheckReport) {
+    public CheckReportBuilder withTextDataCheckReport(SandboxTextDataCheck textDataCheckReport) {
         this.textDataCheckReport = textDataCheckReport;
         return this;
     }
 
-    public CheckReportBuilder withDocumentAuthenticityReport(SandboxDocumentAuthenticityCheckReport documentAuthenticityReport) {
+    public CheckReportBuilder withDocumentAuthenticityReport(SandboxDocumentAuthenticityCheck documentAuthenticityReport) {
         this.documentAuthenticityReport = documentAuthenticityReport;
         return this;
     }
 
-    public CheckReportBuilder withLivenessReport(SandboxLivenessCheckReport livenessReport) {
+    public CheckReportBuilder withLivenessReport(SandboxLivenessCheck livenessReport) {
         this.livenessReport.add(livenessReport);
         return this;
     }
 
-    public CheckReportBuilder withDocumentFaceMatchReport(SandboxFaceMatchCheckReport documentFaceMatchReport) {
+    public CheckReportBuilder withDocumentFaceMatchReport(SandboxFaceMatchCheck documentFaceMatchReport) {
         this.documentFaceMatchReport = documentFaceMatchReport;
         return this;
     }

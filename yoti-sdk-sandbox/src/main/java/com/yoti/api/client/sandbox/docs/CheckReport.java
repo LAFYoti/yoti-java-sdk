@@ -11,24 +11,24 @@ import java.util.List;
 public class CheckReport {
 
     @JsonProperty(ID_DOCUMENT_TEXT_DATA_CHECK)
-    private final SandboxTextDataCheckReport textDataCheckReport;
+    private final SandboxTextDataCheck textDataCheckReport;
 
     @JsonProperty(ID_DOCUMENT_AUTHENTICITY)
-    private final SandboxDocumentAuthenticityCheckReport documentAuthenticityReport;
+    private final SandboxDocumentAuthenticityCheck documentAuthenticityReport;
 
     @JsonProperty(LIVENESS)
-    private final List<SandboxLivenessCheckReport> livenessReport;
+    private final List<SandboxLivenessCheck> livenessReport;
 
     @JsonProperty(ID_DOCUMENT_FACE_MATCH)
-    private final SandboxFaceMatchCheckReport documentFaceMatchReport;
+    private final SandboxFaceMatchCheck documentFaceMatchReport;
 
     @JsonProperty("async_report_delay")
     private final Integer asyncReportDelay;
 
-    CheckReport(SandboxTextDataCheckReport textDataCheckReport,
-                SandboxDocumentAuthenticityCheckReport documentAuthenticityReport,
-                List<SandboxLivenessCheckReport> livenessReport,
-                SandboxFaceMatchCheckReport documentFaceMatchReport,
+    CheckReport(SandboxTextDataCheck textDataCheckReport,
+                SandboxDocumentAuthenticityCheck documentAuthenticityReport,
+                List<SandboxLivenessCheck> livenessReport,
+                SandboxFaceMatchCheck documentFaceMatchReport,
                 Integer asyncReportsDelay) {
         this.textDataCheckReport = textDataCheckReport;
         this.documentAuthenticityReport = documentAuthenticityReport;
@@ -37,19 +37,19 @@ public class CheckReport {
         this.asyncReportDelay = asyncReportsDelay;
     }
 
-    public SandboxTextDataCheckReport getTextDataCheckReport() {
+    public SandboxTextDataCheck getTextDataCheckReport() {
         return textDataCheckReport;
     }
 
-    public SandboxDocumentAuthenticityCheckReport getDocumentAuthenticityReport() {
+    public SandboxDocumentAuthenticityCheck getDocumentAuthenticityReport() {
         return documentAuthenticityReport;
     }
 
-    public List<SandboxLivenessCheckReport> getLivenessReport() {
+    public List<SandboxLivenessCheck> getLivenessReport() {
         return livenessReport;
     }
 
-    public SandboxFaceMatchCheckReport getDocumentFaceMatchReport() {
+    public SandboxFaceMatchCheck getDocumentFaceMatchReport() {
         return documentFaceMatchReport;
     }
 

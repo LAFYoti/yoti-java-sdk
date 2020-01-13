@@ -5,9 +5,9 @@ import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
 
 import java.util.List;
 
-public class SandboxLivenessCheckReport extends SandboxCheckReport {
+public class SandboxDocumentAuthenticityCheck extends SandboxCheck {
 
-    SandboxLivenessCheckReport(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
+    SandboxDocumentAuthenticityCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
         super(recommendation, breakdown);
     }
 
