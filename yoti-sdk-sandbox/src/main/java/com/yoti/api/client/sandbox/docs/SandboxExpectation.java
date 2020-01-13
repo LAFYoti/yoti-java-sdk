@@ -2,6 +2,7 @@ package com.yoti.api.client.sandbox.docs;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yoti.api.client.sandbox.docs.task.SandboxTaskResult;
 
 import java.util.Map;
 
@@ -9,22 +10,22 @@ import java.util.Map;
 public class SandboxExpectation {
 
     @JsonProperty("task_results")
-    private Map<String, TaskResult> taskResults;
+    private Map<String, SandboxTaskResult> taskResults;
 
     @JsonProperty("check_reports")
-    private CheckReport checkReports;
+    private SandboxCheckReport sandboxCheckReports;
 
-    SandboxExpectation(Map<String, TaskResult> taskResults, CheckReport checkReports) {
+    SandboxExpectation(Map<String, SandboxTaskResult> taskResults, SandboxCheckReport sandboxCheckReports) {
         this.taskResults = taskResults;
-        this.checkReports = checkReports;
+        this.sandboxCheckReports = sandboxCheckReports;
     }
 
-    public Map<String, TaskResult> getTaskResults() {
+    public Map<String, SandboxTaskResult> getTaskResults() {
         return taskResults;
     }
 
-    public CheckReport getCheckReports() {
-        return checkReports;
+    public SandboxCheckReport getCheckReports() {
+        return sandboxCheckReports;
     }
 
 }

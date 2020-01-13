@@ -1,15 +1,15 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.task;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
 
-public class TaskResult {
+public class SandboxTaskResult {
 
     @JsonProperty("document_fields")
     private final Map<String, Object> documentFields;
 
-    TaskResult(Map<String, Object> documentFields) {
+    SandboxTaskResult(Map<String, Object> documentFields) {
         this.documentFields = documentFields;
     }
 

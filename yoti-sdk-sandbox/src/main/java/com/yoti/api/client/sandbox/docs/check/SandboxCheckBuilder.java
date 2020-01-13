@@ -1,4 +1,4 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.check;
 
 import com.yoti.api.client.docs.session.retrieve.BreakdownResponse;
 import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;

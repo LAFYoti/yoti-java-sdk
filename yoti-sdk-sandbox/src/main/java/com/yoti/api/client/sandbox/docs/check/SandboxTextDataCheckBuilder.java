@@ -1,4 +1,4 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.check;
 
 import static com.yoti.api.client.spi.remote.util.Validation.notNull;
 

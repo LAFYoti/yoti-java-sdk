@@ -1,13 +1,13 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.check;
 
 import com.yoti.api.client.docs.session.retrieve.BreakdownResponse;
 import com.yoti.api.client.docs.session.retrieve.RecommendationResponse;
 
 import java.util.List;
 
-public class SandboxLivenessCheck extends SandboxCheck {
+public class SandboxFaceMatchCheck extends SandboxCheck {
 
-    SandboxLivenessCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
+    SandboxFaceMatchCheck(RecommendationResponse recommendation, List<BreakdownResponse> breakdown) {
         super(recommendation, breakdown);
     }
 

@@ -1,6 +1,6 @@
-package com.yoti.api.client.sandbox.docs;
+package com.yoti.api.client.sandbox.docs.check;
 
-public class SandboxCheckReportBuilderFactory {
+public class SandboxCheckBuilderFactory {
 
     public SandboxDocumentAuthenticityCheckBuilder createDocumentAuthenticityCheckReportBuilder() {
         return new SandboxDocumentAuthenticityCheckBuilder();

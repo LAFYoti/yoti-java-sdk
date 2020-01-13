@@ -4,12 +4,14 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.collection.IsMapContaining.hasEntry;
 import static org.junit.Assert.assertThat;
 
+import com.yoti.api.client.sandbox.docs.task.SandboxTaskResult;
+import com.yoti.api.client.sandbox.docs.task.SandboxTaskResultBuilder;
 import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class TaskResultBuilderTest {
+public class SandboxTaskResultBuilderTest {
 
     private static final String SOME_KEY = "someKey";
 
@@ -17,7 +19,7 @@ public class TaskResultBuilderTest {
     public void shouldBuildWithSingleDocumentField() {
         Object value = "someValue";
 
-        TaskResult result = new TaskResultBuilder()
+        SandboxTaskResult result = new SandboxTaskResultBuilder()
                 .withDocumentField(SOME_KEY, value)
                 .build();
 
@@ -28,7 +30,7 @@ public class TaskResultBuilderTest {
     public void shouldBuildWithSingleDocumentFieldAsObject() {
         Object value = 13;
 
-        TaskResult result = new TaskResultBuilder()
+        SandboxTaskResult result = new SandboxTaskResultBuilder()
                 .withDocumentField(SOME_KEY, value)
                 .build();
 
@@ -41,7 +43,7 @@ public class TaskResultBuilderTest {
         newMap.put("someFirstValue", "Jaskier");
         newMap.put("someSecondValue", "Geralt");
 
-        TaskResult result = new TaskResultBuilder()
+        SandboxTaskResult result = new SandboxTaskResultBuilder()
                 .withDocumentField("someInitialName", "someInitialValue")
                 .withDocumentFields(newMap)
                 .build();

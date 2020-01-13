@@ -4,11 +4,15 @@ import static com.yoti.api.client.docs.Constants.*;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yoti.api.client.sandbox.docs.check.SandboxDocumentAuthenticityCheck;
+import com.yoti.api.client.sandbox.docs.check.SandboxFaceMatchCheck;
+import com.yoti.api.client.sandbox.docs.check.SandboxLivenessCheck;
+import com.yoti.api.client.sandbox.docs.check.SandboxTextDataCheck;
 
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class CheckReport {
+public class SandboxCheckReport {
 
     @JsonProperty(ID_DOCUMENT_TEXT_DATA_CHECK)
     private final SandboxTextDataCheck textDataCheckReport;
@@ -25,11 +29,11 @@ public class CheckReport {
     @JsonProperty("async_report_delay")
     private final Integer asyncReportDelay;
 
-    CheckReport(SandboxTextDataCheck textDataCheckReport,
-                SandboxDocumentAuthenticityCheck documentAuthenticityReport,
-                List<SandboxLivenessCheck> livenessReport,
-                SandboxFaceMatchCheck documentFaceMatchReport,
-                Integer asyncReportsDelay) {
+    SandboxCheckReport(SandboxTextDataCheck textDataCheckReport,
+                       SandboxDocumentAuthenticityCheck documentAuthenticityReport,
+                       List<SandboxLivenessCheck> livenessReport,
+                       SandboxFaceMatchCheck documentFaceMatchReport,
+                       Integer asyncReportsDelay) {
         this.textDataCheckReport = textDataCheckReport;
         this.documentAuthenticityReport = documentAuthenticityReport;
         this.livenessReport = livenessReport;
