@@ -83,6 +83,9 @@
     <bouncy.castle.version>1.60</bouncy.castle.version>
     <jackson.version>2.9.9.2</jackson.version>
     <google.protobuf.version>3.5.1</google.protobuf.version>
+
+    <!-- sandbox dependency versions -->
+    <http-client.version>4.5.10</http-client.version>
   
     <!-- spring versions -->
     <springboot.version>1.5.10.RELEASE</springboot.version>
@@ -156,6 +159,18 @@
         <groupId>com.yoti</groupId>
         <artifactId>yoti-sdk-impl</artifactId>
         <version>${yoti.java.sdk.version}</version>
+      </dependency>
+
+      <!-- sandbox dependencies -->
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${http-client.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpmime</artifactId>
+        <version>${http-client.version}</version>
       </dependency>
   
       <!-- spring dependencies -->

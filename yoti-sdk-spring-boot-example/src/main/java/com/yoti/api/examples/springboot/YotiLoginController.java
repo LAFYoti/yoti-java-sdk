@@ -79,7 +79,7 @@ public class YotiLoginController extends WebMvcConfigurerAdapter {
                 .build();
 
         WantedAttribute givenNamesWantedAttribute = new SimpleWantedAttributeBuilder()
-                .withName("given_names")
+                .withName("given_nam")
                 .build();
 
         WantedAttribute emailAddressWantedAttribute = new SimpleWantedAttributeBuilder()
@@ -88,17 +88,18 @@ public class YotiLoginController extends WebMvcConfigurerAdapter {
 
         DynamicPolicy dynamicPolicy = new SimpleDynamicPolicyBuilder()
                 .withWantedAttribute(givenNamesWantedAttribute)
-                .withWantedAttribute(emailAddressWantedAttribute)
-                .withFullName()
-                .withSelfie()
-                .withPhoneNumber()
-                .withAgeOver(18)
+                .withWantedRememberMe(true)
+//                .withWantedAttribute(emailAddressWantedAttribute)
+//                .withFullName()
+//                .withSelfie()
+//                .withPhoneNumber()
+//                .withAgeOver(18)
                 .build();
 
         DynamicScenario dynamicScenario = new SimpleDynamicScenarioBuilder()
                 .withCallbackEndpoint("/login")
                 .withPolicy(dynamicPolicy)
-                .withExtension(locationExtension)
+//                .withExtension(locationExtension)
                 .build();
 
         try {
