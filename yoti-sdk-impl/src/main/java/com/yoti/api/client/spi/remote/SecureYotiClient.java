@@ -85,31 +85,31 @@ final class SecureYotiClient implements YotiClient {
     }
 
     @Override
-    public CreateSessionResult createYotiDocsSession(SessionSpec sessionSpec) throws YotiDocsException {
+    public CreateSessionResult createDocScanSession(SessionSpec sessionSpec) throws YotiDocsException {
         LOG.debug("Creating a YotiDocs session...");
         return yotiDocsService.createSession(appId, keyPair, sessionSpec);
     }
 
     @Override
-    public YotiDocsSession getYotiDocsSession(String sessionId) throws YotiDocsException {
+    public YotiDocsSession getDocScanSession(String sessionId) throws YotiDocsException {
         LOG.debug("Retrieving session '{}'", sessionId);
         return yotiDocsService.retrieveSession(appId, keyPair, sessionId);
     }
 
     @Override
-    public void deleteYotiDocsSession(String sessionId) throws YotiDocsException {
+    public void deleteDocScanSession(String sessionId) throws YotiDocsException {
         LOG.debug("Deleting session '{}'", sessionId);
         yotiDocsService.deleteSession(appId, keyPair, sessionId);
     }
 
     @Override
-    public Media getYotiDocsMedia(String sessionId, String mediaId) throws YotiDocsException {
+    public Media getDocScanMedia(String sessionId, String mediaId) throws YotiDocsException {
         LOG.debug("Deleting media content '{}' in session '{}'", mediaId, sessionId);
         return yotiDocsService.getMediaContent(appId, keyPair, sessionId, mediaId);
     }
 
     @Override
-    public void deleteYotiDocsMedia(String sessionId, String mediaId) throws YotiDocsException {
+    public void deleteDocScanMedia(String sessionId, String mediaId) throws YotiDocsException {
         LOG.debug("Deleting media content '{}' in session '{}'", mediaId, sessionId);
         yotiDocsService.deleteMediaContent(appId, keyPair, sessionId, mediaId);
     }

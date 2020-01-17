@@ -233,7 +233,7 @@ public class SecureYotiClientTest {
 
         try {
             SecureYotiClient testObj = new SecureYotiClient(APP_ID, validKeyPairSource, receiptFetcherMock, activityDetailsFactoryMock, remoteAmlServiceMock, sharingServiceMock, yotiDocsServiceMock);
-            testObj.createYotiDocsSession(sessionSpecMock);
+            testObj.createDocScanSession(sessionSpecMock);
         } catch (YotiDocsException thrown) {
             assertSame(thrown, original);
             return;
@@ -249,7 +249,7 @@ public class SecureYotiClientTest {
 
         try {
             SecureYotiClient testObj = new SecureYotiClient(APP_ID, validKeyPairSource, receiptFetcherMock, activityDetailsFactoryMock, remoteAmlServiceMock, sharingServiceMock, yotiDocsServiceMock);
-            testObj.getYotiDocsSession(SOME_SESSION_ID);
+            testObj.getDocScanSession(SOME_SESSION_ID);
         } catch (YotiDocsException thrown) {
             assertSame(thrown, original);
             return;
@@ -265,7 +265,7 @@ public class SecureYotiClientTest {
 
         try {
             SecureYotiClient testObj = new SecureYotiClient(APP_ID, validKeyPairSource, receiptFetcherMock, activityDetailsFactoryMock, remoteAmlServiceMock, sharingServiceMock, yotiDocsServiceMock);
-            testObj.getYotiDocsMedia(SOME_SESSION_ID, SOME_MEDIA_ID);
+            testObj.getDocScanMedia(SOME_SESSION_ID, SOME_MEDIA_ID);
         } catch (YotiDocsException thrown) {
             assertSame(original, thrown);
             return;
@@ -281,7 +281,7 @@ public class SecureYotiClientTest {
 
         try {
             SecureYotiClient testObj = new SecureYotiClient(APP_ID, validKeyPairSource, receiptFetcherMock, activityDetailsFactoryMock, remoteAmlServiceMock, sharingServiceMock, yotiDocsServiceMock);
-            testObj.deleteYotiDocsMedia(SOME_SESSION_ID, SOME_MEDIA_ID);
+            testObj.deleteDocScanMedia(SOME_SESSION_ID, SOME_MEDIA_ID);
         } catch (YotiDocsException thrown) {
             assertSame(thrown, original);
             return;
@@ -297,7 +297,7 @@ public class SecureYotiClientTest {
 
         try {
             SecureYotiClient testObj = new SecureYotiClient(APP_ID, validKeyPairSource, receiptFetcherMock, activityDetailsFactoryMock, remoteAmlServiceMock, sharingServiceMock, yotiDocsServiceMock);
-            testObj.deleteYotiDocsSession(SOME_SESSION_ID);
+            testObj.deleteDocScanSession(SOME_SESSION_ID);
         } catch (YotiDocsException thrown) {
             assertSame(thrown, original);
             return;

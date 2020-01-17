@@ -69,7 +69,7 @@ public interface YotiClient {
      * @return {@link CreateSessionResult} the session creation result
      * @throws YotiDocsException
      */
-    CreateSessionResult createYotiDocsSession(SessionSpec sessionSpec) throws YotiDocsException;
+    CreateSessionResult createDocScanSession(SessionSpec sessionSpec) throws YotiDocsException;
 
     /**
      * Retrieves the state of a previously created Yoti Doc Scan session
@@ -78,7 +78,7 @@ public interface YotiClient {
      * @return {@link YotiDocsSession} the session state
      * @throws YotiDocsException
      */
-    YotiDocsSession getYotiDocsSession(String sessionId) throws YotiDocsException;
+    YotiDocsSession getDocScanSession(String sessionId) throws YotiDocsException;
 
     /**
      * Deletes a previously created Yoti Doc Scan session and all
@@ -87,7 +87,7 @@ public interface YotiClient {
      * @param sessionId the session ID
      * @throws YotiDocsException
      */
-    void deleteYotiDocsSession(String sessionId) throws YotiDocsException;
+    void deleteDocScanSession(String sessionId) throws YotiDocsException;
 
     /**
      * Retrieves media related to a Yoti Doc Scan session based
@@ -98,7 +98,7 @@ public interface YotiClient {
      * @return {@link Media} the media
      * @throws YotiDocsException
      */
-    Media getYotiDocsMedia(String sessionId, String mediaId) throws YotiDocsException;
+    Media getDocScanMedia(String sessionId, String mediaId) throws YotiDocsException;
 
     /**
      * Deletes media related to a Yoti Doc Scan session based
@@ -108,6 +108,6 @@ public interface YotiClient {
      * @param mediaId the media ID
      * @throws YotiDocsException
      */
-    void deleteYotiDocsMedia(String sessionId, String mediaId) throws YotiDocsException;
+    void deleteDocScanMedia(String sessionId, String mediaId) throws YotiDocsException;
 
 }
