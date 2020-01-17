@@ -1,6 +1,8 @@
 package com.yoti.api.client.sandbox.docs.client;
 
 import static com.yoti.api.client.spi.remote.call.YotiConstants.*;
+import static com.yoti.api.client.spi.remote.util.Validation.notNull;
+import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,21 +41,20 @@ public class DocsWebClient {
 
     public static DocsWebClient create(String clientSessionToken) {
             return new DocsWebClient(
-                    clientSessionToken,
-                    System.getProperty(PROPERTY_YOTI_DOCS_URL, DEFAULT_YOTI_DOCS_URL),
+                    notNull(clientSessionToken, "clientSessionToken"),
                     new DocsPathFactory(),
                     new ObjectMapper()
             );
     }
 
     DocsWebClient(String clientSessionToken,
-                  String baseUrl,
                   DocsPathFactory docsPathFactory,
                   ObjectMapper objectMapper) {
         this.clientSessionToken = clientSessionToken;
-        this.baseUrl = baseUrl;
         this.docsPathFactory = docsPathFactory;
         this.objectMapper = objectMapper;
+
+        this.baseUrl = System.getProperty(PROPERTY_YOTI_DOCS_URL, DEFAULT_YOTI_DOCS_URL);
     }
 
     public JsonNode createResource(String sessionId, DocumentResource resource) {
@@ -73,6 +74,7 @@ public class DocsWebClient {
                 .addHeader(CONTENT_TYPE, SandboxMultipartBuilder.CONTENT_TYPE_MULTIPART_WITH_BOUNDARY)
                 .setEntity(entity)
                 .build();
+
         String responseBody = performRequest(request);
         return responseBody.isEmpty() ? null : objectMapper.readValue(responseBody, JsonNode.class);
     }
@@ -171,12 +173,12 @@ public class DocsWebClient {
     }
 
     private String clientRequest(String method, String path, byte[] payload) throws IOException {
-        ByteArrayEntity entity = new ByteArrayEntity(payload);
-        HttpUriRequest request = createBaseRequest(method, path)
-                .addHeader(CONTENT_TYPE, CONTENT_TYPE_JSON)
-                .setEntity(entity)
-                .build();
-        return performRequest(request);
+            ByteArrayEntity entity = new ByteArrayEntity(payload);
+            HttpUriRequest request = createBaseRequest(method, path)
+                    .addHeader(CONTENT_TYPE, CONTENT_TYPE_JSON)
+                    .setEntity(entity)
+                    .build();
+            return performRequest(request);
     }
 
     private String clientRequest(String method, String path) throws IOException {
