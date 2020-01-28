@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.yoti.api.attributes.AttributeConstants.HumanProfileAttributes;
 import com.yoti.api.client.Date;
 import com.yoti.api.client.DocumentDetails;
@@ -14,16 +15,20 @@ import com.yoti.api.client.sandbox.profile.request.attribute.SandboxAttribute;
 import com.yoti.api.client.sandbox.profile.request.attribute.derivation.SandboxAgeVerification;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.yoti.api.client.sandbox.profile.request.share.SandboxExtraData;
 import org.bouncycastle.util.encoders.Base64;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class YotiTokenRequest {
 
     private final String rememberMeId;
     private final List<SandboxAttribute> sandboxAttributes;
+    private final SandboxExtraData sandboxExtraData;
 
-    private YotiTokenRequest(String rememberMeId, List<SandboxAttribute> sandboxAttributes) {
+    private YotiTokenRequest(String rememberMeId, List<SandboxAttribute> sandboxAttributes, SandboxExtraData sandboxExtraData) {
         this.rememberMeId = rememberMeId;
         this.sandboxAttributes = sandboxAttributes;
+        this.sandboxExtraData = sandboxExtraData;
     }
 
     @JsonProperty("remember_me_id")
@@ -34,6 +39,11 @@ public class YotiTokenRequest {
     @JsonProperty("profile_attributes")
     public List<SandboxAttribute> getSandboxAttributes() {
         return sandboxAttributes;
+    }
+
+    @JsonProperty("extra_data")
+    public SandboxExtraData getSandboxExtraData() {
+        return sandboxExtraData;
     }
 
     public static YotiTokenRequestBuilder builder() {
@@ -47,6 +57,7 @@ public class YotiTokenRequest {
 
         private String rememberMeId;
         private final Map<String, SandboxAttribute> attributes = new HashMap<>();
+        private SandboxExtraData extraData;
 
         public YotiTokenRequestBuilder withRememberMeId(String value) {
             this.rememberMeId = value;
@@ -215,8 +226,13 @@ public class YotiTokenRequest {
             return withAttribute(sandboxAttribute);
         }
 
+        public YotiTokenRequestBuilder withExtraData(SandboxExtraData extraData) {
+            this.extraData = extraData;
+            return this;
+        }
+
         public YotiTokenRequest build() {
-            return new YotiTokenRequest(rememberMeId, Collections.unmodifiableList(new ArrayList<>(attributes.values())));
+            return new YotiTokenRequest(rememberMeId, Collections.unmodifiableList(new ArrayList<>(attributes.values())), extraData);
         }
 
         private SandboxAttribute createAttribute(String name, String value) {
