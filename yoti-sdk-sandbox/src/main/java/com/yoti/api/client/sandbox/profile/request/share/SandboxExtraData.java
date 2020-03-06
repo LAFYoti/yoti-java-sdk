@@ -3,10 +3,10 @@ package com.yoti.api.client.sandbox.profile.request.share;
 import static com.yoti.api.client.spi.remote.util.Validation.notNull;
 import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SandboxExtraData {
 
@@ -22,18 +22,25 @@ public class SandboxExtraData {
         return dataEntries;
     }
 
-    private static class Builder {
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public static class Builder {
 
         private List<SandboxDataEntry> dataEntries = new ArrayList<>();
+
+        private Builder() {}
 
         public Builder withDataEntry(SandboxDataEntry dataEntry) {
             dataEntries.add(dataEntry);
             return this;
         }
 
-//        public SandboxExtraData build() {
-//            notNullOrEmpty();
-//        }
+        public SandboxExtraData build() {
+            notNullOrEmpty(dataEntries, "dataEntries");
+            return new SandboxExtraData(dataEntries);
+        }
 
     }
 

@@ -5,7 +5,7 @@ import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SandboxAttributeIsssuanceDetailsPayload {
+class SandboxAttributeIsssuanceDetailsPayload {
 
     @JsonProperty("issuance_token")
     private String issuanceToken;
@@ -13,7 +13,7 @@ public class SandboxAttributeIsssuanceDetailsPayload {
     @JsonProperty("issuing_attributes")
     private SandboxIssuingAttributes issuingAttributes;
 
-    public SandboxAttributeIsssuanceDetailsPayload(String issuanceToken, SandboxIssuingAttributes issuingAttributes) {
+    SandboxAttributeIsssuanceDetailsPayload(String issuanceToken, SandboxIssuingAttributes issuingAttributes) {
         notNullOrEmpty(issuanceToken, "issuanceToken");
         notNull(issuingAttributes, "issuingAttributes");
 

@@ -4,7 +4,7 @@ import static com.yoti.api.client.spi.remote.util.Validation.notNullOrEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SandboxDefinition {
+class SandboxDefinition {
 
     @JsonProperty("name")
     private String name;

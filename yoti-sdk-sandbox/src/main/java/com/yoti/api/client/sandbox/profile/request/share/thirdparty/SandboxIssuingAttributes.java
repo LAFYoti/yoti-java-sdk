@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class SandboxIssuingAttributes {
+class SandboxIssuingAttributes {
 
     @JsonProperty("expiry_date")
     private String expiryDate;
@@ -15,7 +15,7 @@ public class SandboxIssuingAttributes {
     @JsonProperty("definitions")
     private List<SandboxDefinition> definitions;
 
-    public SandboxIssuingAttributes(String expiryDate, List<SandboxDefinition> definitions) {
+    SandboxIssuingAttributes(String expiryDate, List<SandboxDefinition> definitions) {
         notNullOrEmpty(expiryDate, "expiryDate");
         notNull(definitions, "definitions");
 
